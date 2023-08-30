@@ -1,9 +1,5 @@
 let inputs, clock, alarm, hours, minutes, seconds, repeater;
 
-/* window.addEventListener('load', function(){ // load: se asegura de que la funcion se ejecute despues que todos los resursos de la pagina hayan cargado completamente
-    inputs = Array.from(documen.getElementByClassName('number'));
-}); */
-
 window.addEventListener('load', function() {
     const numberElements = document.getElementsByClassName('number');
     inputs = Array.from(numberElements);
@@ -14,7 +10,7 @@ window.addEventListener('load', function() {
     alarm = new Audio('./sound/thisIsHalloween.mp3');
 })
 
-function startTime() {
+function startTimer() {
     //Leer los inputs
     parseTime();
 
@@ -22,10 +18,10 @@ function startTime() {
     setTimer();
 
     //Arrancar el timer
-
+    countDown();
 }
 
-//para leer los inputs
+//Funcion para convertir el string del input a numeros
 function parseTime() {
     //el array trae string, y necesito que sean numeros:
     hours = Number(inputs[0].value);
@@ -43,7 +39,7 @@ function setTimer() {
 }
 
 
-//funcion que arranca el timer:
+//funcion que arranca el contador:
 function countDown() { //nos sirve para iniciar o frenar el timer
     repeater = setInterval(runner, 1000);
 }
@@ -51,10 +47,33 @@ function countDown() { //nos sirve para iniciar o frenar el timer
 //la funcion runner se encarga de hacer la cuenta de cuanto tiempo falta para que se acabe el tiempo y se tenga que activar la alarma
 function runner() {
     //Si tengo mas de 0 segundos, resta segundos
-
     //Si tengo 0 segundos pero tengo mas de 0 minutos, poner 59 segundos y restale 1 a minutos
-    
     // Si tengo 0 segundos, 0 minutos pero tengo mas de 0 horas, poner segundos en 59, minutos en 59 y restale 1 a hora
-
     // Sino arranca la alarma
+
+
+    if (seconds > 0) {
+        seconds--;
+    } else {
+        if (minutes > 0) {
+            seconds = 59;
+            minutes--;
+        } else {
+            if (hours > 0 ) {
+                seconds = 59;
+                minutes = 59;
+                hours--;
+            } else {
+                alarm.play();
+            }
+        }
+    }
+    
+    setTimer();
+}
+
+//funcion para frenar la alarma 
+function stopTimer(){
+    clearInterval(repeater);
+    location.reload();
 }
