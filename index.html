@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="clock">
+            <input type="text" class="number" maxlength="2" value="00"><span>hr</span>
+            <input type="text" class="number" maxlength="2" value="00"><span>min</span>
+            <input type="text" class="number" maxlength="2" value="00"><span>seg</span>
+        </div>
+
+        <div class="btns">
+            <button id="play" onclick="startTime()"></button>
+            <button id="stop" onclick="startTime()"></button>
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
