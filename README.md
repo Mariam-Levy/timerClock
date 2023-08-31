@@ -1,6 +1,6 @@
 # timerClock
 
-**Proyecto en JavaScriot que permite establecer temporizadores personalizados. Visualizar el tiempo restante en formato 'hh:mm:ss', con una alarma al final, se puede pausar y reiniciar el temporizador.**
+**JavaScript project that allows setting up custom timers. It displays the remaining time in 'hh:mm:ss' format, with an alarm at the end. The timer can be paused and restarted.**
 
 ## Used technology 🛠️
 [![My Skills](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev)
